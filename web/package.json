@@ -1,0 +1,103 @@
+{
+  "name": "hailtechno",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "cross-env ENV_MAIN=.env.dev webpack-dev-server --config webpack.dev.config.js",
+    "local": "cross-env ENV_MAIN=.env.default webpack-dev-server --config webpack.dev.config.js",
+    "build:dev": "cross-env webpack --config webpack.dev.config.js",
+    "build:prod": "cross-env webpack --config webpack.prod.config.js",
+    "lint": "eslint --ext js,jsx --fix src/ ",
+    "test": "jest --coverage --passWithNoTests"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "clsx": "^1.0.4",
+    "history": "^5.1.0",
+    "i18next": "^19.0.1",
+    "i18next-browser-languagedetector": "^4.0.1",
+    "i18next-xhr-backend": "^3.2.2",
+    "jwt-decode": "^2.2.0",
+    "luxon": "^1.27.0",
+    "prop-types": "^15.7.2",
+    "qs": "^6.9.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.2.5",
+    "react-jss": "^10.8.2",
+    "react-loadable": "^5.5.0",
+    "react-query": "^2.23.0",
+    "react-query-devtools": "^2.5.0",
+    "react-router-dom": "^6.0.1",
+    "style-loader": "^3.2.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.14.3",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.16.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.4.9",
+    "@testing-library/user-event": "^13.1.9",
+    "babel-jest": "^27.3.1",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "config": "^3.3.2",
+    "copy-webpack-plugin": "^6.2.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^8.2.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.15.1",
+    "eslint-plugin-react-hooks": "^4.2.1-alpha-ee069065d-20211105",
+    "eslint-plugin-standard": "^4.0.1",
+    "file-loader": "^4.1.0",
+    "html-webpack-plugin": "^5.3.1",
+    "husky": "^3.1.0",
+    "image-webpack-loader": "^8.0.1",
+    "jest": "^27.3.1",
+    "jest-in-case": "^1.0.2",
+    "url-loader": "^2.1.0",
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0",
+    "webpack-merge": "^4.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageDirectory": "./coverage",
+    "moduleNameMapper": {
+      "^Utility/(.*)$": "<rootDir>/src/utils/$1",
+      "^Components/(.*)$": "<rootDir>/src/components/$1",
+      "^Apis/(.*)$": "<rootDir>/src/apis/$1",
+      "^Constants/(.*)$": "<rootDir>/src/constants/$1",
+      "^Helpers/(.*)$": "<rootDir>/src/helpers/$1",
+      "^Hooks/(.*)$": "<rootDir>/src/hooks/$1",
+      "^Providers/(.*)$": "<rootDir>/src/providers/$1",
+      "^Types/(.*)$": "<rootDir>/src/types/$1"
+    }
+  }
+}

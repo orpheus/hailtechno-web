@@ -1,0 +1,13 @@
+{
+  "env": "default",
+  "host": "localhost",
+  "port": "7777",
+  "publicPath": "/",
+  "assetPath": "assets",
+  "jsSourcePath": "src",
+  "html": {
+    "name": "homepage",
+    "title": "Hail Techno",
+    "filename": "index.html"
+  }
+}

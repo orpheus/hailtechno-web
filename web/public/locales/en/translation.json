@@ -1,0 +1,13 @@
+{
+  "app": {
+    "title": "Hail Techno"
+  },
+  "tracks": "Tracks",
+  "mixes": "Mixes",
+  "art": "Art",
+  "about": "About",
+  "upload": "Upload",
+  "access-code": "Access Code",
+  "email": "Email",
+  "validate": "Validate"
+}
