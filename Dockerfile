@@ -3,6 +3,7 @@
 FROM nginx:latest
 
 WORKDIR /app
+# MAKE SURE TO RUN NPM RUN BUILD BEFORE CREATING THIS DOCKERFILE
 COPY web/dist /app/dist
 
 # copy files for nginx

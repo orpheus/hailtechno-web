@@ -41,7 +41,6 @@ jobs:
           root: .
           paths:
             - dist
-      - run: ls
 
   docker-build:
     executor: docker-publisher
@@ -50,19 +49,20 @@ jobs:
       - setup_remote_docker
       - attach_workspace:
           at: .
-      - run:
-          name: Build latest Docker image
-          command: docker build . -t $IMAGE_NAME:latest
-      # - run:
-      #     name: Build tagged Docker iamge
-      #     command: docker built . -t $IMAGE_NAME:${CIRCLE_TAG}
-      - run:
-          name: Archive Docker Image
-          command: docker save -o image.tar $IMAGE_NAME
-      - persist_to_workspace:
-          root: ~/hailtechno
-          paths:
-            - ./image.tar
+      - run: ls
+#      - run:
+#          name: Build latest Docker image
+#          command: docker build . -t $IMAGE_NAME:latest
+#      # - run:
+#      #     name: Build tagged Docker iamge
+#      #     command: docker built . -t $IMAGE_NAME:${CIRCLE_TAG}
+#      - run:
+#          name: Archive Docker Image
+#          command: docker save -o image.tar $IMAGE_NAME
+#      - persist_to_workspace:
+#          root: ~/hailtechno
+#          paths:
+#            - ./image.tar
 
   docker-publish:
     executor: docker-publisher
@@ -99,6 +99,9 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+      - docker-build:
+          requires:
+            - build-and-test
 
   # Run automatically on main
   CI-Main:
