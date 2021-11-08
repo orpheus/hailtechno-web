@@ -34,9 +34,7 @@ jobs:
       - image: circleci/node:12.16.1
     steps:
       - checkout
-      - run:
-          name: Install
-          command: install
+      - install
       - run:
           name: Build
           command: NODE_ENV=development npm run build:dev
