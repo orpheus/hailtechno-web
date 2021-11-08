@@ -29,7 +29,7 @@ executors:
 
 jobs:
   build-and-test:
-    working_directory: ~/myrepo
+    working_directory: ~/hailtechno
     docker:
       - image: circleci/node:12.16.1
     steps:
