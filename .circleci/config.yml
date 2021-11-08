@@ -98,13 +98,6 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-      - docker-build:
-          requires:
-            - build-and-test
-      - docker-publish:
-          requires:
-            - docker-build
-          context: hailtechno
 
   # Run automatically on main
   CI-Main:
