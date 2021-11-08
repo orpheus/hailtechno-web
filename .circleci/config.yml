@@ -38,7 +38,7 @@ jobs:
 #      - save_cache_cmd
 #      #- run: echo "Test Me"
       - persist_to_workspace:
-          root: ~/hailtechno
+          root: .
           paths:
             - dist
       - run: ls
