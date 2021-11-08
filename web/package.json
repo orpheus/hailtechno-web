@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "cross-env ENV_MAIN=.env.dev webpack-dev-server --config webpack.dev.config.js",
     "local": "cross-env ENV_MAIN=.env.default webpack-dev-server --config webpack.dev.config.js",
-    "build:dev": "cross-env webpack --config webpack.dev.config.js",
-    "build:prod": "cross-env webpack --config webpack.prod.config.js",
+    "build:dev": "NODE_ENV=development cross-env webpack --config webpack.dev.config.js",
+    "build:prod": "NODE_ENV=production cross-env webpack --config webpack.prod.config.js",
     "lint": "eslint --ext js,jsx --fix src/ ",
     "test": "jest --coverage --passWithNoTests"
   },

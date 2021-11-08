@@ -6,7 +6,7 @@ export default function useDocumentTitle (text) {
   useEffect(() => {
     let title = t('app.title')
     if (text) {
-      title = `${text} - ${t('app.title')}`
+      title = `${t('app.title')} - ${text}`
     }
     window.document.title = title
   }, [text, t])
