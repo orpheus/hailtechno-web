@@ -104,6 +104,7 @@ workflows:
       - docker-publish:
           requires:
             - docker-build
+          context: hailtechno
 
   # Run automatically on main
   CI-Main:
