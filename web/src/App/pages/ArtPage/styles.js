@@ -15,4 +15,4 @@ export default createUseStyles(theme => ({
     minWidth: '100%',
     minHeight: '100%'
   }
-}), { name: 'HomePage' })
+}), { name: 'ArtPage' })

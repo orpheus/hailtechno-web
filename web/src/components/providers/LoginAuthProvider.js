@@ -123,7 +123,7 @@ export default function LoginAuthProvider ({ children }) {
   // ON_APP_MOUNT_ONLY, check the token expiration authentication variable
   // if token is expired or user authentication is false, then logout, clearing state, and rerouting to login page
   useEffect(() => {
-    console.log('App Mounted: Authorized With Valid Token:', JSON.stringify(authorized))
+    // console.log('App Mounted: Authorized With Valid Token:', JSON.stringify(authorized))
     if (!authorized) {
       logout()
     }
@@ -135,7 +135,7 @@ export default function LoginAuthProvider ({ children }) {
    */
   useEffect(() => {
     const handleFocus = () => {
-      console.log('Window Refocused: Authorized With Valid Token:', authorized)
+      // console.log('Window Refocused: Authorized With Valid Token:', authorized)
       if (!authorized) {
         logout()
       }

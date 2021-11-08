@@ -9,5 +9,11 @@
   "upload": "Upload",
   "access-code": "Access Code",
   "email": "Email",
-  "validate": "Validate"
+  "validate": "Validate",
+  "access_denied": "Access Denied",
+  "upload_type": "Upload Type",
+  "filename": "File Name",
+  "artist": "Artist",
+  "upload_file": "Upload File",
+  "submit": "Submit"
 }

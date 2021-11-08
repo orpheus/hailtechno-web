@@ -1,9 +1,9 @@
 const appTheme = {
   appNav: {
-    width: 300
+    width: 200
   },
   playerBar: {
-    height: 0
+    height: 0 // 80
   },
   fontFamily: {
     main: 'Arial',

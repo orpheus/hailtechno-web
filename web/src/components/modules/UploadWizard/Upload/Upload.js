@@ -3,6 +3,8 @@ import Button from 'Components/library/Button/Button'
 import SelectInput from 'Components/library/InputSelect/SelectInput'
 import TextInput from 'Components/library/InputText/TextInput'
 import FileInput from 'Components/library/InputFile/FileInput'
+import { useState } from 'react'
+import clsx from 'clsx'
 
 const Upload = ({
   c,
@@ -14,18 +16,24 @@ const Upload = ({
   setArtist
 }) => {
   const { t } = useTranslation()
+  const [file, setFile] = useState()
 
-  function handleFileInput (FileList) {
-    console.log(FileList)
+  function handleFileUpload (e) {
+    const files = e.target.files
+    setFile(files[0])
+    console.log('Uploaded file locally: ', file)
   }
+  const disabled = (!artist || !displayName)
   return <div className={c.body}>
     <SelectInput
       id={'upload-type-input'}
       label={t('Upload Type')}
       options={[t('track'), t('mix'), t('image'), t('video')]}
       onValueChange={setUploadType}
-      placeholder={'Upload Type'}
+      placeholder={t('upload_type')}
       value={uploadType}
+      className={c.input}
+      labelProps={{ className: c.label }}
     />
     <TextInput
       id={'filename-input'}
@@ -33,6 +41,8 @@ const Upload = ({
       label={t('filename')}
       value={displayName}
       onValueChange={setDisplayName}
+      className={c.input}
+      labelProps={{ className: c.label }}
     />
     <TextInput
       id={'artist-input'}
@@ -40,15 +50,23 @@ const Upload = ({
       label={t('artist')}
       value={artist}
       onValueChange={setArtist}
+      className={c.input}
+      labelProps={{ className: c.label }}
     />
-    <FileInput
-      id={'file-upload-input'}
-      label={'Upload File'}
-      onFileSelect={handleFileInput}
-    />
+    {file ? <span className={c.filename}>{file?.name}</span>
+      : <FileInput
+        id={'file-upload-input'}
+        label={'Upload File'}
+        className={c.uploadFileButton}
+        onChange={handleFileUpload}
+      />}
     <Button
       id={'file-submit-button'}
-      className={c.doneButton}>
+      className={clsx(
+        c.spaceButton,
+        disabled && c.disabled
+      )}
+    >
       {t('submit')}
     </Button>
   </div>

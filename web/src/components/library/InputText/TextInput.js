@@ -1,5 +1,4 @@
 import styles from './styles'
-import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 const TextInput = ({
@@ -10,23 +9,24 @@ const TextInput = ({
   onValueChange,
   labelProps = {},
   inputProps = {},
-  placeholder
+  placeholder,
+  onBlur
 }) => {
   const c = styles()
 
-  const [internalValue, setInternalValue] = useState(value)
-
-  useEffect(() => {
-    setInternalValue(value)
-  }, [value])
-
-  useEffect(() => {
-    onValueChange(internalValue)
-  }, [internalValue, onValueChange])
-
-  function handleInternalChange (e) {
-    setInternalValue(e.target.value)
-  }
+  // const [internalValue, setInternalValue] = useState(value)
+  //
+  // useEffect(() => {
+  //   setInternalValue(value)
+  // }, [value])
+  //
+  // useEffect(() => {
+  //   onValueChange(internalValue)
+  // }, [internalValue, onValueChange])
+  //
+  // function handleInternalChange (e) {
+  //   setInternalValue(e.target.value)
+  // }
 
   return <div className={c.root}>
     <label
@@ -39,9 +39,10 @@ const TextInput = ({
       id={id}
       className={clsx(className, c.input)}
       type={'text'}
-      onChange={handleInternalChange}
-      value={internalValue}
+      onChange={e => onValueChange(e.target.value)}
+      value={value}
       placeholder={placeholder}
+      onBlur={onBlur}
       {...inputProps}
     />
   </div>

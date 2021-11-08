@@ -1,8 +1,8 @@
-import { QueryCache, ReactQueryCacheProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
-const queryCache = new QueryCache()
+const queryClient = new QueryClient()
 export default function ReactQueryProvider ({ children }) {
-  return <ReactQueryCacheProvider queryCache={queryCache}>
+  return <QueryClientProvider client={queryClient}>
     {children}
-  </ReactQueryCacheProvider>
+  </QueryClientProvider>
 }

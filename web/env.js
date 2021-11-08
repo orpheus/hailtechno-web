@@ -36,7 +36,7 @@ if (process.env.ENV_MAIN) {
 
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
 // injected into the application via DefinePlugin in Webpack configuration.
-const APP = /^PAYMENTS_/i
+const APP = /^HAILTECHNO_/i
 
 function getClientEnvironment (publicUrl) {
   const raw = Object.keys(process.env)
