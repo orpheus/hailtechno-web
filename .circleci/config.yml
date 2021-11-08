@@ -23,13 +23,13 @@ executors:
 
 jobs:
   build-and-test:
-    working_directory: ~/hailtechno
+    working_directory: ~/hailtechno/web
     docker:
       - image: circleci/node:12.16.1
     steps:
-      - checkout
+      - checkout:
+          path: ~/hailtechno
       - run: ls
-      - run: cd web
 #          - NODE_ENV npm run build:dev
 #      - save_cache_cmd
 #      - run: |
