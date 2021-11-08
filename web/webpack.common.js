@@ -133,8 +133,8 @@ module.exports = {
       minify: {
         removeComments: true,
         collapseWhitespace: true
-      }
-      // favicon: './public/assets/images/toDo.svg'
+      },
+      favicon: './public/assets/images/favicon.ico'
     }),
     new webpack.DefinePlugin({
       APP_TITLE: JSON.stringify(config.get('html.title'))
