@@ -30,18 +30,19 @@ jobs:
       - checkout
       - run: |
           - cd web
-          - npm install
-          - NODE_ENV npm run build:dev
-      - save_cache_cmd
-      - run: |
-          - pwd
           - ls
-      #- run: echo "Test Me"
-      - persist_to_workspace:
-          root: ~/hailtechno
-          paths:
-            - dist
-      - run: ls
+#          - npm install
+#          - NODE_ENV npm run build:dev
+#      - save_cache_cmd
+#      - run: |
+#          - pwd
+#          - ls
+#      #- run: echo "Test Me"
+#      - persist_to_workspace:
+#          root: ~/hailtechno
+#          paths:
+#            - dist
+#      - run: ls
 
   docker-build:
     executor: docker-publisher
