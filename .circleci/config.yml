@@ -30,7 +30,6 @@ jobs:
       - checkout
       - run: |
           - cd web
-          - ls
 #          - npm install
 #          - NODE_ENV npm run build:dev
 #      - save_cache_cmd
