@@ -1,17 +1,19 @@
 import styles from './styles'
 import clsx from 'clsx'
+import { useRef } from 'react'
 
 const FileInput = ({
   accept,
   id = 'file-upload',
   name = 'file-upload',
-  multiple = 'false',
+  multiple = false,
   labelProps = {},
   label,
-  onFileSelect,
+  onChange,
   className
 }) => {
   const c = styles()
+  const ref = useRef()
 
   return <div className={c.root}>
     <label
@@ -22,13 +24,17 @@ const FileInput = ({
       {label}
     </label>
     <input
+      ref={ref}
       className={c.fileInput}
       accept={accept}
       id={id}
       name={name}
       multiple={multiple}
       type={'file'}
-      onChange={onFileSelect}
+      onChange={e => {
+        onChange(e)
+        ref.current.value = ''
+      }}
     />
 
   </div>

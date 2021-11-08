@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import useDocumentTitle from 'Hooks/useDocumentTitle'
-import styles from './styles'
 import hailtechnoBg from '../../../../public/assets/video/hailtechno_bg.mp4'
+import styles from './styles'
 
-const HomePage = () => {
+const ArtPage = () => {
   const c = styles()
   const { t } = useTranslation()
 
-  useDocumentTitle(t('app.tracks'))
+  useDocumentTitle(t('art'))
 
   return <div className={c.homePageRoot}>
     <video autoPlay muted loop id="hailtechno_tv_bg" className={c.videobg}>
@@ -16,4 +16,4 @@ const HomePage = () => {
   </div>
 }
 
-export default HomePage
+export default ArtPage

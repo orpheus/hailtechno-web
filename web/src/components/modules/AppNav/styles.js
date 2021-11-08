@@ -18,22 +18,22 @@ export default createUseStyles(theme => ({
   link: {
     display: 'block',
     marginBottom: 30,
-    fontSize: 30,
+    fontSize: 20,
     fontFamily: 'Orbitron',
-    textTransform: 'uppercase',
     color: 'white',
-    marginLeft: 60,
+    marginLeft: 30,
 
     '&:visited': {
       color: '#ffffff'
     },
     '&:active': {
-      color: '#0000ff',
+      color: 'beige',
       textShadow: '0 2px 4px rgba(0,0,0,1)'
     },
     '&:hover': {
-      color: '#0000ff',
-      textShadow: '0 2px 4px rgba(0,0,0,1)'
+      color: 'beige',
+      textShadow: '0 2px 4px rgba(0,0,0,1)',
+      textDecoration: 'underline'
     }
   }
 }), { name: 'AppNav' })

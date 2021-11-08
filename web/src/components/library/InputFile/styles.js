@@ -6,9 +6,9 @@ export default createUseStyles({
     display: 'none'
   },
   label: {
-    border: '1px solid #ccc',
+    // border: '1px solid #ccc',
     display: 'inline-block',
-    padding: '6px 12px',
+    // padding: '6px 12px',
     cursor: 'pointer'
   }
 }, { name: 'FileInput' })

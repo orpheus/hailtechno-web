@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { omit } from 'ramda'
 
 const requestWrapper = async (method, options) => {
   if (process.env.NODE_ENV === 'test') return
@@ -9,12 +8,12 @@ const requestWrapper = async (method, options) => {
     method,
     url: options.route,
     params: options.params,
-    data: (options.data && typeof options.data === 'object' && !(options.data instanceof FormData))
-      ? { ...omit(['skipAccessToken'], options.data) } : options.data,
+    data: options.data,
     json: options.contentType === 'application/json',
     responseType: options.responseType === 'application/json' ? 'json' : options.responseType,
     headers: {
-      Authorization: `Bearer ${window.localStorage.getItem('jwt')}`, // <- or have it on all calls,
+      'HT-ACCESS-CODE': options.accessCode,
+      // Authorization: `Bearer ${window.localStorage.getItem('jwt')}`, // <- or have it on all calls,
       'content-type': options.contentType || 'application/json',
       Accept: options.contentType || 'application/json',
       'Cache-Control':
