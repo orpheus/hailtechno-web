@@ -29,18 +29,19 @@ jobs:
     steps:
       - checkout:
           path: ~/hailtechno
-      - run: ls
-#          - NODE_ENV npm run build:dev
+      - run:
+          name: NPM Install
+          command: npm
+      - run:
+          name: Webpack build
+          command: npm run build:dev
 #      - save_cache_cmd
-#      - run: |
-#          - pwd
-#          - ls
 #      #- run: echo "Test Me"
-#      - persist_to_workspace:
-#          root: ~/hailtechno
-#          paths:
-#            - dist
-#      - run: ls
+      - persist_to_workspace:
+          root: ~/hailtechno
+          paths:
+            - dist
+      - run: ls
 
   docker-build:
     executor: docker-publisher
