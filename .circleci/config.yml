@@ -31,7 +31,7 @@ jobs:
           path: ~/hailtechno
       - run:
           name: NPM Install
-          command: npm
+          command: npm install
       - run:
           name: Webpack build
           command: npm run build:dev
