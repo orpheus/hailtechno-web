@@ -4,19 +4,14 @@ commands:
     steps:
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-{{ checksum "web/package-lock.json" }}
             - vi-dependencies-
   save_cache_cmd:
     steps:
       - save_cache:
           paths:
-            - ./node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
-  install:
-    steps:
-      - checkout
-      - run: npm install
-      - save_cache_cmd
+            - ./web/node_modules
+          key: v1-dependencies-{{ checksum "web/package-lock.json" }}
 
 executors:
   docker-publisher:
@@ -33,14 +28,14 @@ jobs:
       - image: circleci/node:12.16.1
     steps:
       - checkout
-      - install
+      - run: |
+          - cd web
+          - npm install
+          - NODE_ENV npm run build:dev
       - save_cache_cmd
       - run: |
           - pwd
           - ls
-      - run:
-          name: Build
-          command: NODE_ENV=development npm run build:dev
       #- run: echo "Test Me"
       - persist_to_workspace:
           root: ~/hailtechno
