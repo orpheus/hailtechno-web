@@ -7,7 +7,7 @@ const HomePage = () => {
   const c = styles()
   const { t } = useTranslation()
 
-  useDocumentTitle(t('app.tracks'))
+  useDocumentTitle(t('tracks'))
 
   return <div className={c.homePageRoot}>
     <video autoPlay muted loop id="hailtechno_tv_bg" className={c.videobg}>
