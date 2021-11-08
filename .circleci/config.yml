@@ -46,10 +46,10 @@ jobs:
     executor: docker-publisher
     steps:
       - checkout
-      - setup_remote_docker
+#      - setup_remote_docker
       - attach_workspace:
-          at: .
-      - run: ls && ls web
+          at: web
+      - run: ls web
 #      - run:
 #          name: Build latest Docker image
 #          command: docker build . -t $IMAGE_NAME:latest
