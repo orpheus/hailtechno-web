@@ -15,7 +15,6 @@ commands:
   install:
     steps:
       - checkout
-      - restore_cache_cmd
       - run: npm install
       - save_cache_cmd
 
@@ -35,6 +34,7 @@ jobs:
     steps:
       - checkout
       - install
+      - save_cache_cmd
       - run:
           name: Build
           command: NODE_ENV=development npm run build:dev
