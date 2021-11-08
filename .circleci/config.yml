@@ -28,11 +28,8 @@ jobs:
       - image: circleci/node:12.16.1
     steps:
       - checkout
-      - run:
-          name: "NPM Install and Build"
-          command: |
-            - cd web && npm i
-            - ls
+      - run: ls
+      - run: cd web
 #          - NODE_ENV npm run build:dev
 #      - save_cache_cmd
 #      - run: |
