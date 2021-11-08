@@ -35,6 +35,9 @@ jobs:
       - checkout
       - install
       - save_cache_cmd
+      - run: |
+          - pwd
+          - ls
       - run:
           name: Build
           command: NODE_ENV=development npm run build:dev
