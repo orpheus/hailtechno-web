@@ -16,12 +16,11 @@ spec:
     spec:
       containers:
       - env:
-        - name: NODE_ENV
-          value: development
-        - name: HAILTECHNO_HOST
-          value: https://hailtechno-svc.hailtechno.com
-        - name: HAILTECHNO_PORT
-          value: "3000"
+          # These are set in the CI when I do webpack:build
+#        - name: HAILTECHNO_HOST
+#          value: https://hailtechno-svc.hailtechno.com
+#        - name: HAILTECHNO_PORT
+#          value: "3000"
         image: hailtechno/hailtechno-web:latest
         livenessProbe:
           httpGet:

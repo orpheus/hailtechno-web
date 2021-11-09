@@ -27,7 +27,7 @@ jobs:
     docker:
       - image: circleci/node:12.16.1
     environment:
-      HAILTECHNO_HOST: hailtechno-service
+      HAILTECHNO_HOST: http://hailtechno-service
       HAILTECHNO_PORT: 3000
     steps:
       - checkout:

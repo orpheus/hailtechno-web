@@ -11,3 +11,8 @@ dbuild() {
 drun() {
   docker run -p 8080:80 -p 443:443 hailtechno/hailtechno-web:latest
 }
+
+ddeploy() {
+  kubectl delete deployment hailtechno-web
+  kubectl apply -k deployments/templates
+}
