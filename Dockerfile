@@ -7,9 +7,10 @@ WORKDIR /app
 COPY web/dist /app/dist
 
 # copy files for nginx
-#COPY nginx/nginx.conf /etc/nginx/nginx.conf
-#COPY nginx/nginx-ssl.conf /etc/nginx/nginx-ssl.conf
-COPY nginx/nginx-ssl.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+
+# LET K8 Ingress Take Care of SSL
+#COPY nginx/nginx-ssl.conf /etc/nginx/nginx.conf
 COPY nginx/mime.types /etc/nginx/mime.types
 
 # copy cert files

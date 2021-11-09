@@ -1,4 +1,4 @@
-export const url = `${process.env.HAILTECHNO_HOST}:${process.env.HAILTECHNO_PORT}`
+export const url = `${process.env.HAILTECHNO_SVC_URL}`
 const root = (controller) => `${url}/api${controller}`
 
 export const trackController = root('/track')
