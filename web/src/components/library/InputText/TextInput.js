@@ -10,7 +10,8 @@ const TextInput = ({
   labelProps = {},
   inputProps = {},
   placeholder,
-  onBlur
+  onBlur,
+  type = 'text'
 }) => {
   const c = styles()
 
@@ -38,7 +39,7 @@ const TextInput = ({
     <input
       id={id}
       className={clsx(className, c.input)}
-      type={'text'}
+      type={type}
       onChange={e => onValueChange(e.target.value)}
       value={value}
       placeholder={placeholder}
