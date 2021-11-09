@@ -26,6 +26,9 @@ jobs:
     working_directory: ~/hailtechno/web
     docker:
       - image: circleci/node:12.16.1
+    environment:
+      HAILTECHNO_HOST: hailtechno-service
+      HAILTECHNO_PORT: 3000
     steps:
       - checkout:
           path: ~/hailtechno
@@ -34,7 +37,7 @@ jobs:
           command: npm install
       - run:
           name: Webpack build
-          command: npm run build:dev
+          command: npm run build:prod
 #      - save_cache_cmd
 #      #- run: echo "Test Me"
       - persist_to_workspace:
