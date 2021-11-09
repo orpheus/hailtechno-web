@@ -11,11 +11,10 @@ export default createUseStyles({
     outline: 'none',
     color: 'white',
     border: 'none',
-    textTransform: 'uppercase',
 
     '&:hover': {
       cursor: 'pointer',
-      color: '#0000ff'
+      color: 'beige'
     },
     '&:active': {
       color: '#0000ff'
