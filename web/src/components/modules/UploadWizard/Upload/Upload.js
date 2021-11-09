@@ -3,8 +3,8 @@ import Button from 'Components/library/Button/Button'
 import SelectInput from 'Components/library/InputSelect/SelectInput'
 import TextInput from 'Components/library/InputText/TextInput'
 import FileInput from 'Components/library/InputFile/FileInput'
-import { useState } from 'react'
 import clsx from 'clsx'
+import PulseLoader from 'Components/library/Loaders/PulseLoader/PulseLoader'
 
 const Upload = ({
   c,
@@ -13,21 +13,23 @@ const Upload = ({
   displayName,
   setDisplayName,
   artist,
-  setArtist
+  setArtist,
+  file,
+  setFile,
+  handleUploadSubmit,
+  uploadFn
 }) => {
   const { t } = useTranslation()
-  const [file, setFile] = useState()
 
   function handleFileUpload (e) {
-    const files = e.target.files
-    setFile(files[0])
-    console.log('Uploaded file locally: ', file)
+    const file = e.target.files[0]
+    setFile(file)
   }
-  const disabled = (!artist || !displayName)
+  const disabled = (!artist || !displayName || !file)
   return <div className={c.body}>
     <SelectInput
       id={'upload-type-input'}
-      label={t('Upload Type')}
+      label={t('upload_type')}
       options={[t('track'), t('mix'), t('image'), t('video')]}
       onValueChange={setUploadType}
       placeholder={t('upload_type')}
@@ -60,15 +62,23 @@ const Upload = ({
         className={c.uploadFileButton}
         onChange={handleFileUpload}
       />}
-    <Button
-      id={'file-submit-button'}
-      className={clsx(
-        c.spaceButton,
-        disabled && c.disabled
-      )}
-    >
-      {t('submit')}
-    </Button>
+    {uploadFn.isLoading ? <PulseLoader />
+      : <Button
+        id={'file-submit-button'}
+        className={clsx(
+          c.spaceButton,
+          disabled && c.disabled
+        )}
+        onClick={handleUploadSubmit}
+      >
+        {t('submit')}
+      </Button>}
+    {uploadFn.isSuccess && <div className={c.successText}>
+      {t('uploaded')}
+    </div>}
+    {uploadFn.isError && <div className={c.errorText}>
+      {uploadFn.error.message}
+    </div>}
   </div>
 }
 

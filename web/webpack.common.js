@@ -114,11 +114,11 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         include: [path.resolve('./src'), path.resolve('./public')],
         use: [
           'style-loader',
-          'css-loader',
+          'css-loader'
         ]
       }
     ]

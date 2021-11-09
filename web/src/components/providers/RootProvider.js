@@ -7,6 +7,7 @@ import ReactQueryProvider from './ReactQueryProvider'
 import LoginAuthProvider from './LoginAuthProvider'
 import SnackbarProvider from './SnackbarProvider'
 import PermissionsProvider from './PermissionsProvider'
+import AccessStateProvider from './AccessStateProvider'
 
 /**
  * Add new providers here. They  will render in the order they appear in this array.
@@ -15,6 +16,7 @@ const Providers = [
   ReactQueryProvider,
   ReactRouterProvider,
   LoginAuthProvider,
+  AccessStateProvider,
   PermissionsProvider,
   AppThemeProvider,
   ViewportProvider,

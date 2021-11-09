@@ -1,17 +1,16 @@
-import { fileTypeController } from 'Constants/urls'
 import { post } from 'Utility/request-wrapper'
 
-export default function uploadFile ({
+export default function uploadFileApi ({
   formData,
   accessCode,
-  options,
-  type
+  controller,
+  options
 }) {
-  if (!fileTypeController[type]) {
-    throw Error(`Type not found: ${type}`)
+  if (!controller) {
+    throw Error(`Controller not found: ${controller}`)
   }
   return post({
-    route: fileTypeController[type],
+    route: controller,
     data: formData,
     accessCode,
     headers: {

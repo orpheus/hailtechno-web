@@ -28,6 +28,7 @@ const Validation = ({
     <TextInput
       placeholder={'email'}
       label={t('email')}
+      type={'email'}
       value={email}
       onValueChange={setEmail}
       className={clsx(c.input, emailError && `${c.input}--error`)}
@@ -38,6 +39,7 @@ const Validation = ({
     <TextInput
       placeholder={'access-code'}
       label={t('access-code')}
+      // type={'password'}
       value={accessCode}
       onValueChange={setAccessCode}
       className={c.input}
@@ -48,7 +50,7 @@ const Validation = ({
         c.spaceButton,
         disabled && c.disabled
       )}
-      onClick={!disabled && handleValidation}>
+      onClick={!disabled ? handleValidation : undefined}>
       {t('validate')}
     </Button>
     {validationError && t('access_denied')}

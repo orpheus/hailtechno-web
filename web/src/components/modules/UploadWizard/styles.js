@@ -86,5 +86,14 @@ export default createUseStyles({
     color: 'red',
     textTransform: 'uppercase',
     textAlign: 'center'
+  },
+  successText: {
+    fontFamily: 'Orbitron',
+    fontWeight: 'bold'
+  },
+  errorText: {
+    fontFamily: 'Orbitron',
+    color: 'red',
+    fontWeight: 'bold'
   }
 }, { name: 'UploadWizard' })

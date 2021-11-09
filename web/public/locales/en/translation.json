@@ -5,6 +5,9 @@
   "tracks": "Tracks",
   "mixes": "Mixes",
   "art": "Art",
+  "video": "Video",
+  "image": "Image",
+  "mix": "Mix",
   "about": "About",
   "upload": "Upload",
   "access-code": "Access Code",
@@ -15,5 +18,8 @@
   "filename": "File Name",
   "artist": "Artist",
   "upload_file": "Upload File",
-  "submit": "Submit"
+  "submit": "Submit",
+  "uploaded": "Uploaded",
+  "error": "Error",
+  "track": "Track"
 }
