@@ -4,6 +4,6 @@ kind: Kustomization
 bases:
   - hailtechno-web
 
-#
+
 #resources:
 #  - ingress.yaml
