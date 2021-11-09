@@ -54,6 +54,7 @@ const UploadWizard = ({ handleClose }) => {
     formData.append('file', file)
     formData.append('artist', artist)
     formData.append('trackname', displayName)
+    formData.append('email', email)
     await uploadFn.mutate({
       controller: fileTypeController.track,
       accessCode: accessToken?.id,
