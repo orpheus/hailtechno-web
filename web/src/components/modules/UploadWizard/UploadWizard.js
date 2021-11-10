@@ -1,5 +1,5 @@
 import styles from './styles'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Validation from 'Components/modules/UploadWizard/Validation/Validation'
 import Upload from 'Components/modules/UploadWizard/Upload/Upload'
 import { useOnClickOutside } from 'Hooks/useOnClickOutside'

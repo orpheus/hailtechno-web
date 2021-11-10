@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useMemo, useCallback, useEffect } from 'react'
+import { createContext, useState, useContext, useMemo, useCallback } from 'react'
 import useLocalStorageCache from 'Hooks/useLocalStorageCache'
 
 export const AccessStateCtx = createContext(undefined)

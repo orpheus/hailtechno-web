@@ -42,7 +42,7 @@ export default createUseStyles(theme => ({
     backgroundColor: '#000000',
     cursor: 'pointer',
     left: 7,
-    position: 'relative',
+    position: 'relative'
 
     // '&:active': {
     //   borderColor: 'transparent transparent transparent #000000',
