@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss'
 
 export default createUseStyles(theme => ({
   root: {
-    height: '100%',
+    height: `calc(100% - ${theme.playerBar.height}px)`,
     backgroundColor: 'black',
     position: 'relative',
     left: theme.appNav.width,

@@ -3,7 +3,7 @@ const appTheme = {
     width: 150
   },
   playerBar: {
-    height: 0 // 80
+    height: 80 // 80
   },
   fontFamily: {
     main: 'Arial',
