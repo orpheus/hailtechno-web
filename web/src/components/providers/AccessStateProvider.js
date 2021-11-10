@@ -5,11 +5,11 @@ export const AccessStateCtx = createContext(undefined)
 export const useAccessState = () => useContext(AccessStateCtx)
 
 const AccessStateProvider = ({ children }) => {
-  const [accessToken, setAccessToken] = useState()
-  const [email, setEmail] = useState()
+  const [accessToken, setAccessToken] = useState('')
+  const [email, setEmail] = useState('')
   // this doesn't really have to do with Validation,
   // more so a convenience
-  const [artist, setArtist] = useState()
+  const [artist, setArtist] = useState('')
 
   const getState = useCallback(() => {
     return { accessToken, email, artist }

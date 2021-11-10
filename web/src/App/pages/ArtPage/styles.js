@@ -5,11 +5,10 @@ export default createUseStyles(theme => ({
     height: '100%',
     backgroundColor: 'black',
     position: 'relative',
-    left: `calc(${theme.appNav.width}-${theme.appNav.width})px`,
-    bottom: theme.playerBar.height
+    boxSizing: 'border-box'
   },
   videobg: {
-    position: 'fixed',
+    position: 'absolute',
     width: '100%',
     height: '100%'
   }

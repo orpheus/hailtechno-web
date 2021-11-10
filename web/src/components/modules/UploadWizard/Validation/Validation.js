@@ -12,9 +12,7 @@ const Validation = ({
   accessCode,
   setAccessCode,
   handleValidation,
-  validationResponse,
-  validationError,
-  validateFn
+  validationError
 }) => {
   const { t } = useTranslation()
   const [emailError, setEmailError] = useState(false)
@@ -53,7 +51,6 @@ const Validation = ({
       onClick={!disabled ? handleValidation : undefined}>
       {t('validate')}
     </Button>
-    {validationError && t('access_denied')}
   </div>
 }
 

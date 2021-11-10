@@ -13,7 +13,8 @@ export default createUseStyles({
     zIndex: 200,
     padding: 70,
     color: 'white',
-    border: '1px solid white'
+    border: '1px solid white',
+    maxHeight: 250
   },
   body: {
     display: 'flex',

@@ -13,11 +13,7 @@ export default createUseStyles({
     border: 'none',
 
     '&:hover': {
-      cursor: 'pointer',
-      color: 'beige'
-    },
-    '&:active': {
-      color: '#0000ff'
+      cursor: 'pointer'
     }
   }
 }, { name: 'UploadButton' })
