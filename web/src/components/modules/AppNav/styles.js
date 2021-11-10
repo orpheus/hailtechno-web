@@ -23,9 +23,9 @@ export default createUseStyles(theme => ({
     padding: '10px 26px',
     textTransform: 'uppercase',
 
-    '&:visited': {
-      color: '#c5c5c5'
-    },
+    // '&:visited': {
+    //   color: '#c5c5c5'
+    // },
     '&:hover': {
       backgroundColor: 'rgba(94,94,94,0.8)',
       color: '#ffffff'
@@ -33,7 +33,16 @@ export default createUseStyles(theme => ({
     },
     '&--active': {
       backgroundColor: 'rgba(94,94,94,0.8)',
-      color: '#ffffff'
+      color: '#ffffff',
+    },
+    '&--disabled': {
+      backgroundColor: 'unset',
+      '&:hover': {
+        backgroundColor: 'unset',
+        cursor: 'default',
+        color: 'grey',
+        pointerEvents: 'none'
+      }
     }
   }
 }), { name: 'AppNav' })

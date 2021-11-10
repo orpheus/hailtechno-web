@@ -11,8 +11,22 @@ const TrackPage = () => {
   useDocumentTitle(t('tracks'))
   const tracks = useQuery('tracks', getTracksApi)
 
-  console.log(tracks)
+  const { data = [] } = tracks
+  console.log(data)
   return <div className={c.root}>
+    <div className={c.header}/>
+    {data.map(track => {
+      return <div
+        key={track.id}
+        className={c.trackRow}>
+        <div className={c.title}>
+          {track.artist}
+        </div>
+        <div className={c.text}>
+          {track.display_name}
+        </div>
+      </div>
+    })}
   </div>
 }
 
