@@ -6,9 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED] -
 
+## [0.1.0] - 2021-NOV-09
+ - Simple /about page with hyperlinks to my media
+ - /tracks renders list of tracks
+ - "Track" component and "GlobalPlayer" provider download, caching, and playback of tracks
+ - Remove playerbar on all routes but /tracks for now
+ - Art page just shows the art shane and I made (hailtechno.tv)
+ - I CAN NOW DOWNLOAD AND PLAY TRACKS
+
 ## [UNRELEASED] - 2021-NOV-08
  - File Upload
  - CI auto build and docker deploy
  - nginx ssl and Dockerfile cleanup
  - kubernetes service and deployment templates
- - 
