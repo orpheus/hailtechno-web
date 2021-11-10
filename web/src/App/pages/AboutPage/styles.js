@@ -5,7 +5,28 @@ export default createUseStyles(theme => ({
     height: '100%',
     backgroundColor: 'black',
     position: 'relative',
-    left: `calc(${theme.appNav.width}-${theme.appNav.width})px`,
-    bottom: theme.playerBar.height
+    left: theme.appNav.width,
+    width: `calc(100% - ${theme.appNav.width}px)`,
+    boxSizing: 'border-box',
+    padding: '0 40px'
+  },
+  header: {
+    height: 50
+  },
+  '& pre': {
+    color: 'white'
+  },
+  about: {
+    color: 'white',
+    display: 'inline-flex',
+    flexDirection: 'column'
+  },
+  alias: {
+    marginLeft: 152,
+    display: 'block',
+    color: 'white',
+    '&:visited': {
+      color: '#6565ff'
+    }
   }
 }), { name: 'AboutPage' })

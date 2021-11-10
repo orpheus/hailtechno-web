@@ -33,7 +33,7 @@ const AppNav = () => {
 
   useEffect(() => {
     if (active !== location.pathname) {
-      // setActive(location.pathname)
+      setActive(location.pathname)
     }
   }, [active, location.pathname])
 
