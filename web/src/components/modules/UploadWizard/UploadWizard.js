@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Validation from 'Components/modules/UploadWizard/Validation/Validation'
 import Upload from 'Components/modules/UploadWizard/Upload/Upload'
 import { useOnClickOutside } from 'Hooks/useOnClickOutside'
-import { useMutation } from 'react-query'
+import { useMutation, useQueryClient } from 'react-query'
 import validationApi from 'Apis/core/validation-api'
 import { useTranslation } from 'react-i18next'
 import uploadFileApi from 'Apis/core/upload-file'
@@ -14,6 +14,7 @@ const UploadWizard = ({ handleClose }) => {
   const c = styles()
   const { t } = useTranslation()
   const modalRef = useRef()
+  const queryClient = useQueryClient()
 
   const {
     email,
@@ -56,6 +57,13 @@ const UploadWizard = ({ handleClose }) => {
       controller: fileTypeController.track,
       accessCode: accessToken?.id,
       formData: formData
+    }, {
+      onSuccess: () => {
+        queryClient.invalidateQueries('tracks')
+      },
+      onError: () => {
+        setFile(undefined)
+      }
     })
   }
 

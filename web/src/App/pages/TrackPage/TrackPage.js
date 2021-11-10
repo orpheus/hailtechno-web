@@ -3,29 +3,33 @@ import useDocumentTitle from 'Hooks/useDocumentTitle'
 import styles from './styles'
 import { useQuery } from 'react-query'
 import getTracksApi from 'Apis/core/get-tracks'
+import { useGlobalPlayer } from 'Components/providers/GlobalPlayerProvider'
+import Track from 'Components/modules/Track/Track'
+import { useAccessState } from 'Components/providers/AccessStateProvider'
 
 const TrackPage = () => {
   const c = styles()
   const { t } = useTranslation()
+  const globalPlayer = useGlobalPlayer()
+  const { accessToken } = useAccessState()
 
   useDocumentTitle(t('tracks'))
+
   const tracks = useQuery('tracks', getTracksApi)
+  function handleTrackClick (track) {
+    globalPlayer.setActiveTrack(track)
+  }
 
   const { data = [] } = tracks
-  console.log(data)
   return <div className={c.root}>
-    <div className={c.header}/>
     {data.map(track => {
-      return <div
+      return <Track
         key={track.id}
-        className={c.trackRow}>
-        <div className={c.title}>
-          {track.artist}
-        </div>
-        <div className={c.text}>
-          {track.display_name}
-        </div>
-      </div>
+        onClick={() => handleTrackClick(track)}
+        active={globalPlayer.activeTrack?.id === track.id}
+        track={track}
+        accessCode={accessToken?.id}
+      />
     })}
   </div>
 }

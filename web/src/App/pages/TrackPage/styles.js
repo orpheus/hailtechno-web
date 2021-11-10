@@ -8,28 +8,9 @@ export default createUseStyles(theme => ({
     bottom: theme.playerBar.height,
     left: theme.appNav.width,
     width: `calc(100% - ${theme.appNav.width}px)`,
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    paddingTop: 50,
+    overflow: 'auto'
   },
-  header: {
-    height: 50
-  },
-  trackRow: {
-    padding: '15px 40px',
-    fontFamily: 'SYSTEM-UI',
-    borderBottom: '1px solid white',
 
-    '&:hover': {
-      backgroundColor: 'rgba(255,255,255,0.12)',
-      cursor: 'pointer'
-    }
-  },
-  title: {
-    color: 'white',
-    display: 'block',
-    fontSize: 12
-  },
-  text: {
-    color: 'white',
-    fontWeight: 'bold'
-  }
 }), { name: 'TrackPage' })

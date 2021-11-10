@@ -12,7 +12,7 @@ const Validation = ({
   accessCode,
   setAccessCode,
   handleValidation,
-  validationError,
+  validationError
 }) => {
   const { t } = useTranslation()
   const [emailError, setEmailError] = useState(false)

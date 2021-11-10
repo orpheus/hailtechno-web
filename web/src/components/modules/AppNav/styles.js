@@ -33,7 +33,7 @@ export default createUseStyles(theme => ({
     },
     '&--active': {
       backgroundColor: 'rgba(94,94,94,0.8)',
-      color: '#ffffff',
+      color: '#ffffff'
     },
     '&--disabled': {
       backgroundColor: 'unset',
