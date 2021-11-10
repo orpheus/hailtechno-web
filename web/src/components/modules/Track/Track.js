@@ -4,6 +4,7 @@ import { useQuery } from 'react-query'
 import getFileApi from 'Apis/core/get-file'
 import { useEffect, useRef, useState } from 'react'
 import BarLoader from 'Components/library/Loaders/BarLoader/BarLoader'
+import { useGlobalPlayer } from 'Components/providers/GlobalPlayerProvider'
 
 const Track = ({
   className,
@@ -14,6 +15,7 @@ const Track = ({
   const c = styles()
   const [blobUrl, setBlobUrl] = useState(undefined)
   const audioRef = useRef()
+  const globalPlayer = useGlobalPlayer()
 
   const [download, setDownload] = useState(false)
   const downloadedFile = useQuery(['track', track?.id], async () =>
@@ -22,8 +24,13 @@ const Track = ({
     refetchOnWindowFocus: false
   })
 
-  function handleInternalClick () {
-    setDownload(true)
+  // if file is in cache, don't download and call the audio player to play it
+  async function handleInternalClick () {
+    if (globalPlayer.audioStore[track.id]?.blobUrl) {
+      await globalPlayer.loadAndPlay(track.id)
+    } else {
+      setDownload(true)
+    }
   }
 
   useEffect(() => {
@@ -32,27 +39,18 @@ const Track = ({
       const blob = new Blob([downloadedFile.data], { type: track.content_type })
       const url = window.URL.createObjectURL(blob)
       setBlobUrl(url)
+      setDownload(false)
     }
   }, [downloadedFile.data, track.content_type])
 
-  // useEffect(() => {
-  //   audioRef.current?.addEventListener('loadeddata', e => {
-  //     console.log('loaded', e)
-  //   })
-  //   // audioRef.current?.addEventListener('loadeddata', function () {
-  //   //   console.log('loaded data')
-  //   //   if (audioRef.current.readyState >= 2) {
-  //   //     audioRef.current.play()
-  //   //   }
-  //   // })
-  // }, [])
-
+  // when the blob url is ready, cache it with the player
   useEffect(() => {
-    if (blobUrl) {
-      audioRef.current.load()
-      audioRef.current.play()
+    if (blobUrl && !globalPlayer.audioStore[track.id]) {
+      // audioRef.current.load()
+      // audioRef.current.play()
+      globalPlayer.handleNewTrack(track, blobUrl, audioRef.current)
     }
-  }, [blobUrl])
+  }, [blobUrl, globalPlayer, track])
 
   return <>
     <div
@@ -79,7 +77,7 @@ const Track = ({
         <BarLoader />
       </div>}
     </div>
-    <audio ref={audioRef} style={{ display: 'none' }}>
+    <audio id={`audio-for-${track.id}`} ref={audioRef} style={{ display: 'none' }}>
       <source src={blobUrl} type={track.content_type} />
     </audio>
   </>

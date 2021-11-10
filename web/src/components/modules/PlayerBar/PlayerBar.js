@@ -1,30 +1,32 @@
 import styles from './styles'
 import clsx from 'clsx'
-import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { OFF, ON, useGlobalPlayer } from 'Components/providers/GlobalPlayerProvider'
 
 const PlayBar = ({ active }) => {
   const c = styles()
-  const [play, setPlay] = useState(false)
   const { pathname } = useLocation()
-  if (pathname === '/' || pathname === '/art') {
+  const { play, pause, playState } = useGlobalPlayer()
+
+  if (pathname !== '/tracks') {
     return null
   }
 
-  function handlePlay () {
-    setPlay(true)
+  async function handlePlay () {
+    console.log('-> handle play')
+    await play()
   }
 
-  function handleStop () {
-    setPlay(false)
+  async function handleStop () {
+    console.log('-> handle stop')
+    await pause()
   }
-  const stop = !play
   return <div className={clsx(
     c.root,
     active && `${c.root}--active`
   )}>
-    {play && <button className={c.stopButton} onClick={handleStop}/>}
-    {stop && <button className={c.playButton} onClick={handlePlay}/>}
+    {playState === ON && <button className={c.stopButton} onClick={handleStop}/>}
+    {playState === OFF && <button className={c.playButton} onClick={handlePlay}/>}
 
   </div>
 }
