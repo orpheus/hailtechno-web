@@ -5,10 +5,15 @@ import clsx from 'clsx'
 export default function Link ({
   children,
   to,
-  c
+  className,
+  onClick
 }) {
   const classes = styles()
-  return <RouterLink to={to} className={clsx(c, classes.root)}>
+  return <RouterLink
+    to={to}
+    className={clsx(className, classes.root)}
+    onClick={onClick}
+  >
     {children}
   </RouterLink>
 }

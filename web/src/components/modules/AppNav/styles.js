@@ -17,23 +17,23 @@ export default createUseStyles(theme => ({
   },
   link: {
     display: 'block',
-    marginBottom: 30,
-    fontSize: 20,
-    fontFamily: 'Orbitron',
-    color: 'white',
-    marginLeft: 30,
+    fontSize: 12,
+    fontFamily: 'SYSTEM-UI',
+    color: '#575757',
+    padding: '10px 26px',
+    textTransform: 'uppercase',
 
     '&:visited': {
-      color: '#ffffff'
-    },
-    '&:active': {
-      color: 'beige',
-      textShadow: '0 2px 4px rgba(0,0,0,1)'
+      color: '#c5c5c5'
     },
     '&:hover': {
-      color: 'beige',
-      textShadow: '0 2px 4px rgba(0,0,0,1)',
-      textDecoration: 'underline'
+      backgroundColor: 'rgba(94,94,94,0.8)',
+      color: '#ffffff'
+      // textShadow: '0 2px 4px rgba(0,0,0,1)'
+    },
+    '&--active': {
+      backgroundColor: 'rgba(94,94,94,0.8)',
+      color: '#ffffff'
     }
   }
 }), { name: 'AppNav' })

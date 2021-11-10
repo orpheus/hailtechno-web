@@ -1,6 +1,6 @@
 const appTheme = {
   appNav: {
-    width: 200
+    width: 150
   },
   playerBar: {
     height: 0 // 80

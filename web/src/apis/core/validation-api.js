@@ -1,7 +1,7 @@
 import { validationController } from 'Constants/urls'
 import { post } from 'Utility/request-wrapper'
 
-export default function validationApi ({
+export default async function validationApi ({
   accessCode,
   options,
   email
@@ -9,7 +9,6 @@ export default function validationApi ({
   if (!accessCode) {
     throw Error('Missing access code for validation.')
   }
-  console.log('Validate: ', accessCode, email)
   return post({
     route: validationController,
     data: { email },

@@ -1,5 +1,5 @@
 import styles from './styles'
-import { useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Validation from 'Components/modules/UploadWizard/Validation/Validation'
 import Upload from 'Components/modules/UploadWizard/Upload/Upload'
 import { useOnClickOutside } from 'Hooks/useOnClickOutside'
@@ -24,13 +24,10 @@ const UploadWizard = ({ handleClose }) => {
     setAccessToken
   } = useAccessState()
 
-  const [accessCode, setAccessCode] = useState()
+  const [accessCode, setAccessCode] = useState('')
 
   const [uploadType, setUploadType] = useState(t('track'))
-  const [displayName, setDisplayName] = useState()
-
-  // eslint-disable-next-line no-unused-vars
-  const [validationError, setValidationError] = useState()
+  const [displayName, setDisplayName] = useState('')
 
   const [file, setFile] = useState()
 
@@ -62,6 +59,25 @@ const UploadWizard = ({ handleClose }) => {
     })
   }
 
+  // Run validation once on mount
+  useEffect(() => {
+    let current = true
+    async function validate () {
+      if (accessToken && current) {
+        try {
+          await validationApi({ accessCode: accessToken.id })
+        } catch (err) {
+          setAccessToken(undefined)
+        }
+      }
+    }
+    validate()
+    return () => {
+      current = false
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return <div className={c.root} ref={modalRef}>
     {!accessToken &&
     <Validation
@@ -71,7 +87,7 @@ const UploadWizard = ({ handleClose }) => {
       accessCode={accessCode}
       setAccessCode={setAccessCode}
       handleValidation={handleValidation}
-      validationError={validationError}
+      validationError={validateFn.isError}
       validateFn={validateFn}
     />}
 
