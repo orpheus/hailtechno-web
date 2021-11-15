@@ -65,7 +65,7 @@ export default function useLocalStorageCache (getState, setState) {
 
     // PerformanceNavigationTiming
     if (window.performance.getEntriesByType('navigation')) {
-      p = performance.getEntriesByType('navigation')[0].type
+      p = performance.getEntriesByType('navigation')[0]?.type
     }
 
     let localStorageState
