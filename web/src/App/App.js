@@ -6,13 +6,23 @@ import styles from './appStyles'
 import UploadButton from 'Components/modules/UploadButton/UploadButton'
 import { useLocation } from 'react-router-dom'
 
+const showNav = pathname => {
+  switch (pathname) {
+    // case '/':
+    case '/art':
+      return false
+    default:
+      return true
+  }
+}
+
 const App = () => {
   const c = styles()
   const location = useLocation()
 
   return <div className={c.root}>
     <Routes />
-    {location.pathname !== '/art' && <AppNav />}
+    {showNav(location.pathname) && <AppNav />}
     <PlayBar />
     <UploadButton />
     {process.env.NODE_ENV !== 'production' && <ReactQueryDevtools initialIsOpen={false} />}

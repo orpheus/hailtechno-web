@@ -4,7 +4,7 @@ import AppThemeProvider from './AppThemeProvider'
 import ViewportProvider from './ViewportProvider'
 import ReactRouterProvider from './ReactRouterProvider'
 import ReactQueryProvider from './ReactQueryProvider'
-import LoginAuthProvider from './LoginAuthProvider'
+// import LoginAuthProvider from './LoginAuthProvider'
 import SnackbarProvider from './SnackbarProvider'
 import PermissionsProvider from './PermissionsProvider'
 import AccessStateProvider from './AccessStateProvider'
@@ -17,7 +17,7 @@ const Providers = [
   ReactQueryProvider,
   ReactRouterProvider,
   GlobalPlayerProvider,
-  LoginAuthProvider,
+  // LoginAuthProvider,
   AccessStateProvider,
   PermissionsProvider,
   AppThemeProvider,
