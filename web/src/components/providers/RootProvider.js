@@ -17,7 +17,7 @@ const Providers = [
   ReactQueryProvider,
   ReactRouterProvider,
   GlobalPlayerProvider,
-  LoginAuthProvider,
+  // LoginAuthProvider,
   AccessStateProvider,
   PermissionsProvider,
   AppThemeProvider,
